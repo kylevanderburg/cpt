@@ -14,20 +14,16 @@ $hammer->setHS(1); $hammer->setHD("/");
 $hammer->clientUrlParse();
 if($hammer->user['id']!=1){$hammer->prohibited('KV');die();}
 
-// $hr = new vio_comp_action($hammer);
 $comp = new vio_comp_project($hammer);
 
 $comprow = $comp->getByGUID($_GET['guid']);
 
 $title = $titles[$page];
-// $hammer->debug();
 
 if(isset($_GET['e'])){ini_set('display_errors',1); error_reporting(E_ALL);$hammer->debug();}
 $hammer->head("CPT | Tracker","<link rel=\"stylesheet\" href=\"//liszt.dev/assets/lz-master3.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"//liszt.me/assets/lisztfav.png\"/><script src=\"//liszt.dev/assets/lz-master3.js\"></script>");
 
-// var_dump($hammer);
-// if(!isset($hammer->permissions['noteforge/hammer'])){$hammer->permissions['noteforge/hammer']=0;}
-if(($hammer->getHS()=="1") && ($hammer->getUserRole()<7)){echo "<div class=\"text-center\"><img src=\"//acdn.ntfg.net/images/hammer/delete.png\" /></div><h1 class=\"text-center\">You are not authorized to view this page.";die();}else{}
+if(($hammer->getHS()=="1") && ($hammer->getUserRole()<7)){echo "<div class=\"text-center\"><img src=\"//cdn.ntfg.net/images/hammer/delete.png\" /></div><h1 class=\"text-center\">You are not authorized to view this page.";die();}else{}
 
 function button($action,$icon,$title,$class)
 {
@@ -118,7 +114,7 @@ function compButton(button, ext="") {
 			 "&user=" + encodeURIComponent("<?php echo $hammer->user['hash']; ?>");
 
 	sendPostRequest("/syscontrol.php", data, function (result) {
-		console.log(data);
+		console.log(result);
 	});
 }
 		
@@ -135,7 +131,6 @@ btns.forEach(btn => {
 			}, "1000");
 		//Extra Handling for End Session
 		if(btn.getAttribute('data-action')=="end"){
-			// alert("Redirect to Main");
 			window.location = '/pt/projects/';
 		}
    });
@@ -149,8 +144,6 @@ document.querySelector(".pt-confidence").addEventListener("click", (event) => {
 		const confidence = document.querySelector("#confidencerange").value;
 	//Press Button
 		compButton(confidenceBtn.getAttribute('data-action'),confidence);
-	//Alert Value
-		// alert(confidence);
 	//Change button green for feedback
 		confidenceBtn.classList.add("bg-success");
 		setTimeout(() => {
@@ -166,8 +159,6 @@ document.querySelector(".pt-comment").addEventListener("click", (event) => {
 		const comment = document.querySelector("#<?php echo $hr->page;?>-comment-field");
 	//Press Button
 		compButton(commentBtn.getAttribute('data-action'),comment.value);
-	//Alert Value
-		// alert(comment.value);
 	//Reset Value
 		comment.value = " ";
 	//Change button green for beedback
