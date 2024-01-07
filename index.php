@@ -6,32 +6,26 @@ NoteForge Hammer
 	Debuted on November 30, 2007, at www.kyledavey.com/blink.  Went live December 2, 2007.
 	All code copyright Kyle Vanderburg
 */
+$options = [
+	'vanguard'=>TRUE,
+	"seths"=>1,
+	"vanguardAccess"=>"A",
+	"vanguardLogin"=>"kdv/"
+	];
 
-$options['vanguard']=TRUE; $options['seths']=1;$options['vanguardAccess']="A";$options['vanguardLogin']="kdv/";
 require "/var/www/api.ntfg.net/htdocs/hammer/vanilla.php";
-$hammer->setHS(1); $hammer->setHD("pt");
-
+$hammer->setHS(1);
+$hammer->setHD("pt");
 $hammer->clientUrlParse();
+
 if($hammer->user['id']!=1){$hammer->prohibited('KV');die();}
 
 if(!empty($hammer->location[1])){$hammer->location['page']=$hammer->location[1];}
 if(!empty($hammer->location[2])){$hammer->location['action']=$hammer->location[2];}
 if(!empty($hammer->location[3])){$hammer->location['item']=$hammer->location[3];}
 
-if(isset($hammer->location[1])){$page=$hammer->location[1];}else{$page="pt-index";}
+if(isset($hammer->location[1])){$page=$hammer->location[1];}else{$page="pt-dashboard";}
 if(isset($hammer->location[2])){$action=$hammer->location[2];}else{$action="";}
-$titles = array(
-	"vio-billing-codes" => "Billing Codes",
-	"vio-email" => "Email Console",
-	"vio-index" => "Index",
-	"vio-permissions" => "Permissions",
-	"vio-sites" => "Site Configuration",
-	"vio-user" => "User Configuration",
-	"vio-vars" => "Site Configuration",
-	"vio-audit" => "Audit Log"
-);
-$title = $titles[$page];
-// $hammer->debug();
 
 if(isset($_GET['e'])){ini_set('display_errors',1); error_reporting(E_ALL);$hammer->debug();}
 $hammer->head("CPT","<link rel=\"stylesheet\" href=\"//liszt.dev/assets/lz-master3.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"//liszt.me/assets/lisztfav.png\"/><script src=\"//liszt.dev/assets/lz-master3.js\"></script>");
@@ -42,32 +36,26 @@ if(($hammer->getHS()=="1") && ($hammer->getUserRole()<7)){echo "<div class=\"tex
 
 // $hammer->debug(); ?>
 
+<body class="d-flex flex-column h-100">
 
+<nav class="navbar navbar-expand-lg navbar-dark d-print-none" id="ntfgnav" role="navigation" style="background-color:#000;">
+	<div class="container">
+		<a class="navbar-brand" href="/pt/"><img src="/pt/kvcpt.png" class="" alt="CPT" border="0" style="" /></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbar-content">
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+			<li class="nav-item"><a class="nav-link<?php if(!empty($hammer->location[1])){if($hammer->location[1]=="projects"){echo " active";}}?>" aria-current="page" href="/pt/projects/">Projects</a></li>
+			</ul>
+		</div><!-- nav-collapse -->
+	</div><!-- contianer --> 
+</nav><!--navbar-->
 
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
-
-<?php include('lz-nav-top.php'); ?>
-<?php include('lz-nav-sidebar.php'); ?>
-
-	<!-- Content Wrapper. Contains page content -->
-	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
-		<div class="content-header">
-		</div><!-- content-header -->
-
-		<!-- Main content -->
-		<section class="content">
-			<div class="container-fluid">
-			<?php if(isset($hammer->user)){include($page.".php");} ?></div>
-			</div><!-- container-fluid -->
-		</section><!-- content -->
-	</div>
-	<!-- content-wrapper -->
-	<?php $hammer->h3footer(); ?>
-  
-</div><!-- ./wrapper -->
-
+<div class="container">
+<br />
+	<?php if(isset($hammer->user)){include($page.".php");} ?>
 <?php require_once "/var/www/cdn.ntfg.net/htdocs/footer-scripts.php"; ?>
-</body>
-</html>
+
+</body>  
+</html>  
