@@ -25,6 +25,8 @@ $hammer->head("CPT | Tracker","<link rel=\"stylesheet\" href=\"//liszt.dev/asset
 
 if(($hammer->getHS()=="1") && ($hammer->getUserRole()<7)){echo "<div class=\"text-center\"><img src=\"//cdn.ntfg.net/images/hammer/delete.png\" /></div><h1 class=\"text-center\">You are not authorized to view this page.";die();}else{}
 
+include "pt-standards.php";
+
 function button($action,$icon,$title,$class)
 {
 	echo "<span class=\"d-grid\"><button type=\"button\" class=\"btn btn-lg mb-1 pt-action ".$class."\" data-action=\"".$action."\"><i class=\"fa-light ".$icon."\"></i> ".$title."</button></span>";
@@ -34,41 +36,19 @@ function button($action,$icon,$title,$class)
 <body>
 <div class="container-fluid">
 <center><strong><?php echo $comprow['title'] . " | " . $comprow['inst'] . " | " . $comprow['duedate']; ?></strong></center>
-<strong>META</strong>
-<div class="row">
-	<div class="col-md-4"><?php button("start","fa-pencil","Start Composing Session","btn-success");?></div>
-	<div class="col-md-4"><?php button("undo","fa-undo","UNDO LAST ACTION","btn-warning");?></div>
-	<div class="col-md-4"><?php button("end","fa-pencil-slash","End Composing Session","btn-danger");?></div>
-</div>
-<hr>
-<strong>PREPARATION</strong>
-<div class="row">
-	<div class="col-md-4"><?php button("listenwork","fa-volume","Listen to Work","btn-primary");?></div>
-	<div class="col-md-4"><?php button("listenresearch","fa-turntable","Listen to Research","btn-primary");?></div>
-	<div class="col-md-4"><?php button("scorestudy","fa-book-open","Score Study","btn-primary");?></div>
-</div>
-<hr>
-<strong>INCUBATION</strong>
-<div class="row">
-	<div class="col-md-4"><?php button("improv","fa-guitar","Improv","btn-primary");?></div>
-	<div class="col-md-4"><?php button("distract","fa-gamepad-modern","Begin Distraction","btn-primary");?></div>
-	<div class="col-md-4"><?php button("concentrate","fa-brain","Begin Concentration","btn-primary");?></div>
-</div>
-<hr>
-<strong>ILLUMINATION</strong>
-<div class="row">
-	<div class="col-md-4"><?php button("ideanew","fa-lightbulb-on","Attempt New Idea","btn-primary");?></div>
-	<div class="col-md-4"><?php button("ideadev","fa-lightbulb-gear","Develop Current Idea","btn-primary");?></div>
-	<div class="col-md-4"><?php button("ideascrap","fa-lightbulb-slash","Scrap Current Idea","btn-primary");?></div>
-</div>
-<hr>
-<strong>FINALIZE</strong>
-<div class="row">
-	<div class="col-md-4"><?php button("orch","fa-violin","Orchestrate","btn-primary");?></div>
-	<div class="col-md-4"><?php button("format","fa-file-dashed-line","Format","btn-primary");?></div>
-	<div class="col-md-4"><?php button("scrapall","fa-dumpster","Scrap Entire Project","btn-primary");?></div>
-</div>
-<hr>
+
+<?php
+	foreach($stages as $stage){
+		echo "<strong>".$stage['name']."</strong>";
+		echo "<div class=\"row\">";
+		foreach($stage['buttons'] as $button){
+			echo "<div class=\"col-md-4\">";
+			echo button($button['action'],$button['icon'],$button['text'],$button['displayClass'])."</div>";
+		}
+		echo "</div>";
+		echo "<hr>";
+	}
+?>
 <div class="row">
 	<div class="col-md-9">
         <label for="fall"><strong>Confidence</strong></label><input type="range" class="form-range" min="1" max="100" step="1" id="confidencerange">		
