@@ -25,6 +25,7 @@
 			[
 				["action" => "ideanew","icon" => "fa-lightbulb-on","text" => "Attempt New Idea","displayClass" => "btn-primary"],
 				["action" => "ideadev","icon" => "fa-lightbulb-gear","text" => "Develop Current Idea","displayClass" => "btn-primary"],
+				["action" => "theory","icon" => "fa-lightbulb-gear","text" => "Work out Theory","displayClass" => "btn-primary"],
 				["action" => "ideascrap","icon" => "fa-lightbulb-slash","text" => "Scrap Current Idea","displayClass" => "btn-primary"]
 			]
 		],

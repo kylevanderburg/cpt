@@ -15,7 +15,7 @@ $hr->restrict();
 
 echo "<div class=\"hh\"><h1>Hammer &raquo; Projects</h1></div>";
 $hr->toolbar();
-switch ($hammer->location[2]){
+switch ($hammer->location[1]){
 	case "new":
 	case "insert":
 	case "modify":
@@ -34,13 +34,13 @@ switch ($hammer->location[2]){
 		if($hammer->location['action']=="insert"||$hammer->location['action']=="modify"||$hammer->location['action']=="write"){$hr->get();}
 		
 		if(($hammer->location['action']=="insert" OR $hammer->location['action']=="write") AND isset($_POST['saveclose'])){?>
-		<script>location.href = "<?php echo "/pt/".$hr->page."/";?>"</script>
+		<script>location.href = "<?php echo "/".$hr->page."/";?>"</script>
 		<?php } 
 		$hr->saveCloseHandler($_POST);
 		$hr->savedAlert($action);
 		?>
 		
-		<form name="<?php echo $hr->page; ?>" action="/pt/<?php echo $hr->page;?>/<?php if($hammer->location['action']=="new"){echo "insert";}elseif(($hammer->location['action']=="modify")||($hammer->location['action']=="insert")||($hammer->location['action']=="write")){echo "write";} ?>/" method="post" enctype="multipart/form-data" autocomplete="off">
+		<form name="<?php echo $hr->page; ?>" action="/<?php echo $hr->page;?>/<?php if($hammer->location['action']=="new"){echo "insert";}elseif(($hammer->location['action']=="modify")||($hammer->location['action']=="insert")||($hammer->location['action']=="write")){echo "write";} ?>/" method="post" enctype="multipart/form-data" autocomplete="off">
 		<div role="tabpanel">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">

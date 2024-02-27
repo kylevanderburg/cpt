@@ -10,7 +10,9 @@ $options = [
 	'vanguard'=>TRUE,
 	"seths"=>1,
 	"vanguardAccess"=>"A",
-	"vanguardLogin"=>"kdv/"
+	"vanguardLogin"=>"",
+	"vanguardMessage"=>"kdv",
+	"vanguardLoginURL"=>"https://vanguard.kylevanderburg.net/"
 	];
 
 require "/var/www/api.ntfg.net/htdocs/hammer/vanilla.php";
@@ -24,7 +26,7 @@ if(!empty($hammer->location[0])){$hammer->location['page']=$hammer->location[0];
 if(!empty($hammer->location[1])){$hammer->location['action']=$hammer->location[1];}
 if(!empty($hammer->location[2])){$hammer->location['item']=$hammer->location[2];}
 
-if(isset($hammer->location[0])){$page=$hammer->location[0];}else{$page="pt-dashboard";}
+if(isset($hammer->location[0])){$page=$hammer->location[0];}else{$page="cpt-dashboard";}
 if(isset($hammer->location[1])){$action=$hammer->location[1];}else{$action="";}
 
 if(isset($_GET['e'])){ini_set('display_errors',1); error_reporting(E_ALL);$hammer->debug();}
