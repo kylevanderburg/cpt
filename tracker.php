@@ -31,7 +31,7 @@ $comprow = $comp->getByGUID($_GET['guid']);
 if(isset($_GET['e'])){ini_set('display_errors',1); error_reporting(E_ALL);$hammer->debug();}
 
 //Write <head> to the page
-$hammer->head("CPT | Tracker","<link rel=\"stylesheet\" href=\"//liszt.dev/assets/lz-master3.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"//liszt.me/assets/lisztfav.png\"/><script src=\"//liszt.dev/assets/lz-master3.js\"></script>");
+$hammer->head("ScoreMod | Tracker","<link rel=\"stylesheet\" href=\"//liszt.dev/assets/lz-master3.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"//liszt.me/assets/lisztfav.png\"/><script src=\"//liszt.dev/assets/lz-master3.js\"></script>");
 
 //Secondary exceptional code for user restriction.
 if(($hammer->getHS()=="1") && ($hammer->getUserRole()<7)){echo "<div class=\"text-center\"><img src=\"//cdn.ntfg.net/images/hammer/delete.png\" /></div><h1 class=\"text-center\">You are not authorized to view this page.";die();}else{}
@@ -40,8 +40,8 @@ if(($hammer->getHS()=="1") && ($hammer->getUserRole()<7)){echo "<div class=\"tex
 include "cpt-standards.php";
 
 //Declare function for writing buttons
-function button($action,$icon,$title,$class){
-	echo "<span class=\"d-grid\"><button type=\"button\" class=\"btn btn-lg mb-2 cpt-action btn-".$class."\" data-action=\"".$action."\"><i class=\"fa-light ".$icon."\"></i> ".$title."</button></span>";
+function button($arr){
+	echo "<span class=\"d-grid\"><button type=\"button\" class=\"btn btn-lg mb-2 cpt-action btn-".$arr['displayClass']."\" data-action=\"".$arr['action']."\"><i class=\"fa-light ".$arr['icon']."\"></i> ".$arr['text']."</button></span>";
 }
 
 //Declare function for writing groups of buttons
@@ -50,7 +50,7 @@ function showButtons($category,$buttons){
 		switch ($button['category']){
 			case $category:
 				echo "<div class=\"col-md-4\">";
-				echo button($button['action'],$button['icon'],$button['text'],$button['displayClass'])."</div>";
+				echo button($button)."</div>";
 			break;
 		}
 	}
@@ -73,7 +73,7 @@ function stage($stage,$buttons){
 <div class="row">
 <div class="col-md-9">
 
-	<center><strong>Composition Process Tracker | <?php echo $comprow['title'] . " | " . $comprow['inst'] . " | " . $comprow['duedate']; ?></strong></center>
+	<center><strong>ScoreMod | <em><?php echo $comprow['title'] . "</em> | " . $comprow['inst'] . " | " . $comprow['duedate']; ?></strong></center>
 	<?php
 	foreach($stages as $stage){
 		stage($stage,$buttons);

@@ -4,6 +4,7 @@ $buttons = [
 	["action" => "undo","icon" => "fa-undo","text" => "UNDO LAST ACTION","displayClass" => "warning", "category" => "meta"],
 	["action" => "break","icon" => "fa-mug-hot","text" => "Break","displayClass" => "success", "category" => "meta"],
 	["action" => "end","icon" => "fa-pencil-slash","text" => "End Composing Session","displayClass" => "danger", "category" => "meta"],
+	["action" => "tech","icon" => "fa-laptop-medical","text" => "Debug Technology","displayClass" => "warning", "category" => "meta"],
 	["action" => "listenwork","icon" => "fa-volume","text" => "Listen to Work","displayClass" => "primary", "category" => "preparation"],
 	["action" => "listenresearch","icon" => "fa-turntable","text" => "Listen to Research","displayClass" => "primary", "category" => "preparation"],
 	["action" => "scorestudy","icon" => "fa-book-open","text" => "Score Study","displayClass" => "primary", "category" => "preparation"],

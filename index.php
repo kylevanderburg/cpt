@@ -12,7 +12,7 @@ $options = [
 	"vanguardAccess"=>"A",
 	"vanguardLogin"=>"",
 	"vanguardMessage"=>"kdv",
-	"vanguardLoginURL"=>"https://vanguard.kylevanderburg.net/"
+	//"vanguardLoginURL"=>"https://vanguard.kylevanderburg.net/"
 	];
 
 require "/var/www/api.ntfg.net/htdocs/hammer/vanilla.php";

@@ -50,7 +50,7 @@ $hr->calcDurations($_GET['guid']);
 <div class="container-fluid">
 	<?php
 	echo "<ul class=\"milestones milestones-bordered-bottom\">";
-	echo "<li><i class=\"milestone\"></i> <h6>Transcript of ".$comprow['title']."</h6></li>";
+	echo "<li><i class=\"milestone\"></i> <h6>Transcript of <u>".$comprow['title']."</u></h6></li>";
 	
 	foreach($hr->getByProjectReverse($_GET['guid']) as $a){
 		$key = array_search($a['action'], array_column($buttonsxt, 'action'));

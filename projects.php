@@ -14,6 +14,7 @@ $hr->restrict();
 // $class->restrict();
 
 echo "<div class=\"hh\"><h1>Hammer &raquo; Projects</h1></div>";
+$hammer->setHD("//cpt.research.kylevanderburg.net");
 $hr->toolbar();
 switch ($hammer->location[1]){
 	case "new":
