@@ -5,9 +5,9 @@ $buttons = [
 	["action" => "break","icon" => "fa-mug-hot","text" => "Break","displayClass" => "success", "category" => "meta"],
 	["action" => "end","icon" => "fa-pencil-slash","text" => "End Composing Session","displayClass" => "danger", "category" => "meta"],
 	["action" => "tech","icon" => "fa-laptop-medical","text" => "Debug Technology","displayClass" => "warning", "category" => "meta"],
-	["action" => "listenwork","icon" => "fa-volume","text" => "Listen to Work","displayClass" => "primary", "category" => "preparation"],
-	["action" => "listenresearch","icon" => "fa-turntable","text" => "Listen to Research","displayClass" => "primary", "category" => "preparation"],
-	["action" => "scorestudy","icon" => "fa-book-open","text" => "Score Study","displayClass" => "primary", "category" => "preparation"],
+	["action" => "listenwork","icon" => "fa-volume","text" => "Listen to Work","displayClass" => "primary", "category" => "intention"],
+	["action" => "listenresearch","icon" => "fa-turntable","text" => "Listen to Research","displayClass" => "primary", "category" => "intention"],
+	["action" => "scorestudy","icon" => "fa-book-open","text" => "Score Study","displayClass" => "primary", "category" => "intention"],
 	["action" => "improv","icon" => "fa-guitar","text" => "Improv","displayClass" => "primary", "category" => "incubation"],
 	["action" => "distract","icon" => "fa-gamepad-modern","text" => "Begin Distraction","displayClass" => "primary", "category" => "incubation"],
 	["action" => "concentrate","icon" => "fa-brain","text" => "Begin Concentration","displayClass" => "primary", "category" => "incubation"],
@@ -25,5 +25,5 @@ $buttonsxt=$buttons;
 $buttonsxt[] = ["action" => "comment","icon" => "fa-comment","text" => "Comment","displayClass" => "primary", "category" => "finalize"];
 $buttonsxt[] = ["action" => "confidence","icon" => "fa-comment","text" => "Confidence Level","displayClass" => "primary", "category" => "finalize"];
 
-$stages = ["meta","preparation","incubation","illumination","finalize"];
+$stages = ["meta","intention","incubation","illumination","finalize"];
 ?>

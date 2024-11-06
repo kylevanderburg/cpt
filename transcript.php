@@ -10,9 +10,9 @@ $options = [
 	'vanguard'=>TRUE, //Require Login
 	"seths"=>1, //Hard-code HammerSite
 	"vanguardAccess"=>"A", //User-level access
-	"vanguardLogin"=>"", //Special Login Screen
+	//"vanguardLogin"=>"", //Special Login Screen
 	"vanguardMessage"=>"kdv", //Login Message
-	"vanguardLoginURL"=>"https://vanguard.kylevanderburg.net/" //Use a different login endpoint than Liszt
+	//"vanguardLoginURL"=>"https://vanguard.kylevanderburg.net/" //Use a different login endpoint than Liszt
 	];
 	
 //Load the Vanilla Hammer core, Set HammerSite, HammerDirectory, and parse the URL

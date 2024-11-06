@@ -48,8 +48,12 @@ $buttonsxt[] = ["action" => "confidence","icon" => "fa-comment","text" => "Confi
 $stages = ["meta","preparation","incubation","illumination","finalize"];
 
 //Declare function for writing buttons
-function button($action,$icon,$title,$class){
-	echo "<span class=\"d-grid\"><button type=\"button\" class=\"btn btn-lg mb-2 cpt-action btn-".$class."\" data-action=\"".$action."\"><i class=\"fa-light ".$icon."\"></i> ".$title."</button></span>";
+function button($arr){
+	echo "<span class=\"d-grid\">";
+    echo "<button type=\"button\" class=\"btn btn-lg mb-2 cpt-action btn-".$arr['displayClass']."\" data-action=\"".$arr['action']."\">";
+    echo "<i class=\"fa-light ".$arr['icon']."\"></i> ".arr['$title'];
+    echo "</button>";
+    echo "</span>";
 }
 
 //Declare function for writing groups of buttons

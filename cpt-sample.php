@@ -20,21 +20,9 @@ if(!empty($hammer->location[3])){$hammer->location['item']=$hammer->location[3];
 
 if(isset($hammer->location[1])){$page=$hammer->location[1];}else{$page="pt-index";}
 if(isset($hammer->location[2])){$action=$hammer->location[2];}else{$action="";}
-$titles = array(
-	"vio-billing-codes" => "Billing Codes",
-	"vio-email" => "Email Console",
-	"vio-index" => "Index",
-	"vio-permissions" => "Permissions",
-	"vio-sites" => "Site Configuration",
-	"vio-user" => "User Configuration",
-	"vio-vars" => "Site Configuration",
-	"vio-audit" => "Audit Log"
-);
-$title = $titles[$page];
-// $hammer->debug();
 
 if(isset($_GET['e'])){ini_set('display_errors',1); error_reporting(E_ALL);$hammer->debug();}
-$hammer->head("CPT | ".$title,"<link rel=\"stylesheet\" href=\"//liszt.dev/assets/lz-master3.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"//liszt.me/assets/lisztfav.png\"/><script src=\"//liszt.dev/assets/lz-master3.js\"></script>");
+$hammer->head("CPT | Sample","<link rel=\"stylesheet\" href=\"//liszt.dev/assets/lz-master3.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"//liszt.me/assets/lisztfav.png\"/><script src=\"//liszt.dev/assets/lz-master3.js\"></script>");
 
 // var_dump($hammer);
 // if(!isset($hammer->permissions['noteforge/hammer'])){$hammer->permissions['noteforge/hammer']=0;}
