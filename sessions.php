@@ -72,17 +72,40 @@ $actionArray = [];
     }
 
     $j=1;
-    while ($j <= $i) {
-        echo "<strong>Session ".$j."</strong><br />";
-        var_dump($actionArray[$j]);
-        echo "<hr>";
-//        echo $j;
+	$sessTotal[$j] = 0;
+	//Calc Duration
+	while ($j <= $i) {
+        foreach($actionArray[$j] as $a){
+			$sessTotal[$j]+=$a['duration'];
+		}
         $j++;
         }
 
-    echo "<pre>";
-    print_r($actionArray);
-    echo "</pre>";
+    $j=1;
+	$hammer->debug();
+    while ($j <= $i) {
+        echo "<strong>Session ".$j." - " .$sessTotal[$j]."</strong><br />";
+		foreach($actionArray[$j] as $a){
+			echo $a['action'] . "-" . $a['duration']." - ".$a['duration']/$sessTotal[$j]."<br />";
+		}
+
+		echo "<div class=\"progress-stacked\">";
+		
+		foreach($actionArray[$j] as $a){
+			$pct = $a['duration']/$sessTotal[$j]*100;
+			echo "<div class=\"progress\" role=\"progressbar\" aria-label=\"Segment one\" aria-valuenow=\"". $pct ."\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: ".$pct."%\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" data-bs-title=\"".$pct."\">";
+    		echo "<div class=\"progress-bar\">".$a['action']."</div>";
+			echo "</div>";
+		}
+			echo "</div>";
+        // var_dump($actionArray[$j]);
+        echo "<hr>";
+        $j++;
+    }
+
+    // echo "<pre>";
+    // print_r($actionArray);
+    // echo "</pre>";
 ?>
 
 </div>
